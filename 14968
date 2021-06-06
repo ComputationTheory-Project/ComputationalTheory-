@@ -1,0 +1,130 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter Your REG  in form ^(REG)$ => ^(a|c)c[a]+$\n",
+      "alphabets =>  {'a', 'c'}\n",
+      "Accepted Strings  => \n",
+      "{'ccaaa', 'acaaa'}\n",
+      "length => 2\n"
+     ]
+    }
+   ],
+   "source": [
+    "#PART-1 \n",
+    "import random  \n",
+    "import re\n",
+    "# import string \n",
+    "# => string.ascii_lowercase\n",
+    "res=set()\n",
+    "# reg=\"^([a]*b{3})+$\"\n",
+    "# reg=\"^([a|b]*[c])$\"\n",
+    "# reg= \"^(a[c]*)$\"\n",
+    "# reg=\"\"\n",
+    "# OR \n",
+    "# reg = re.compile(input(\"Enter Your Reg : \"))\n",
+    "# reg=\"^(a*ba+)$\"\n",
+    "reg=input(\"Enter Your REG  in form ^(REG)$ => \")\n",
+    "alphabets = set()\n",
+    "for i in reg:\n",
+    "    if(i.isalpha() or i.isnumeric() ):\n",
+    "        alphabets.add(i)\n",
+    "    else:\n",
+    "        continue       \n",
+    "print(\"alphabets => \",alphabets)\n",
+    "for i in range(1000):\n",
+    "    data=random.choices([w for w in alphabets],k=5)\n",
+    "    if re.compile(reg).match(''.join(data)):\n",
+    "        res.add(''.join(data))\n",
+    "# ^(a|c)c[a]+$\n",
+    "print (\"Accepted Strings  => \",res,\"length => {0}\".format(len(res)),sep='\\n') "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter Your REG  in form ^(REG)$ => ^(a|c)c[a]+$\n",
+      "Enter Your String : caa\n",
+      "NO\n",
+      "Enter Your String : acca\n",
+      "NO\n",
+      "Enter Your String : aca\n",
+      "YES\n",
+      "Enter Your String : acaaaa\n",
+      "YES\n"
+     ]
+    }
+   ],
+   "source": [
+    "# #PART-2: Check Accepting Strings \n",
+    "\n",
+    "import re\n",
+    "# reg = re.compile(\"^([a]*b{3})+$\")\n",
+    "# reg = re.compile(\"^([a|b]*[c])$\")\n",
+    "# reg = re.compile(\"^(a|c)c[a]+$\")\n",
+    "# reg= re.compile(\"^(a[c]*)$\")\n",
+    "# OR \n",
+    "# reg = re.compile(input(\"Enter Your Reg : \"))\n",
+    "# reg= re.compile(\"^(a*ba+)$\")\n",
+    "reg=re.compile(input(\"Enter Your REG  in form ^(REG)$ => \"))\n",
+    "\n",
+    "inp = \" \"\n",
+    "while ( inp != '99' ):\n",
+    "    inp = input(\"Enter Your String : \")\n",
+    "    if reg.match(inp):\n",
+    "        print(\"YES\")\n",
+    "    else:\n",
+    "        print(\"NO\")\n",
+    "print(\"End, Bye....\")        "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
